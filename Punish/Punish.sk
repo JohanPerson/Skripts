@@ -1,0 +1,125 @@
+#Made by Johan#6122
+#Dont claim this.
+
+#change the options --> prefix to what you want
+#this will be in the start of the ban message.
+
+
+
+options:
+  prefix: &2Punishment &6>> &r
+
+
+command /punish [<offlineplayer>]:
+  permission: punish.use
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
+  trigger:
+    open chest with 3 rows named "&2You are Punishing &6%arg-1%!" to player
+    wait 1 tick
+    format slot 12 of player with iron axe named "&2New &6Punishment" to run [make player execute command "newoffence %arg-1%"]
+    format slot 14 of player with red wool named "&cClose" to close
+
+
+command /newoffence [<offlineplayer>]:
+  permission: punish.use
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
+  trigger:
+    open chest with 5 rows named "&2You are Punishing &6%arg-1%!" to player
+    wait 1 tick
+    format slot 0 of player with chest named "&2Malicious Hacks &8| &7Ban duration 5 days" to run [make console execute command "bpm %arg-1%"]
+    format slot 1 of player with chest named "&2Non Malicious Hacks &8| &7Ban duration 2 days" to run [make console execute command "bpnm %arg-1%"]
+    format slot 3 of player with hopper named "&2Low Spam &8| &7Mute duration 10 minutes" to run [make console execute command "mpl %arg-1%"]
+    format slot 4 of player with hopper named "&2High Spam &8| &7Mute duration 30 minutes" to run [make console execute command "mph %arg-1%"]
+    format slot 5 of player with hopper named "&2Spam Bot &8| &7Mute duration 1 hour" to run [make console execute command "mpb %arg-1%"]
+    format slot 2 of player with chest named "&2Spam Bot &8| &7Ban duration 1 day" to run [make console execute command "bpb %arg-1%"]
+    format slot 6 of player with hopper named "&2Swearing/Innap &8| &7Mute duration 30 minutes" to run [make console execute command "sipm %arg-1%"]
+    format slot 7 of player with trapped chest named "&2Warning &8| &7Warn a player" to run [make console execute command "warn %arg-1% You have been warned."]
+
+
+
+
+command /historyadd [<offlineplayer>]:
+  permission: history.add
+  trigger:
+    add 1 to {history.%player%}
+    send "&eYou have added %{history.%player%}% punishment to %arg-1%'s history"
+    if {history.%player%} is 10:
+      make console execute command "ban %arg-1% You have been punished 10 times."
+
+
+
+command /warn [<offlineplayer>] [<text>]:
+  permission: warn.use
+  trigger:
+    add 1 to {warn.%player%}
+    make console execute command "kick %arg-1% %arg-2%"
+    broadcast "{@prefix}&fConsole has warned %arg-1%"
+
+
+
+command /history [<offlineplayer>]:
+  permission: history.admin
+  trigger:
+    open chest with 3 rows named "&6%arg-1%&6's History" to player
+    wait 1 tick
+    format slot 13 of player with bookshelf named "&fClick for history" to run [make console execute command ""]
+
+
+
+command /historysend [<offlineplayer>]:
+  trigger:
+    send "&f%{history.%player%}% Punishments/Warns"
+command /sipm [<offlineplayer>]:
+  permission: punish.simute
+  trigger:
+    broadcast "{@prefix}&fConsole has muted %arg-1% for 30 minutes."
+    make console execute command "mute %arg-1% 30m Swearing/Innap"
+    make console execute command "historyadd %arg-1%"
+
+
+command /mpb [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has muted %arg-1% for 1 hour."
+    make console execute command "mute %arg-1% 1h Spam Bot"
+    make console execute command "historyadd %arg-1%"
+
+
+command /bpb [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has banned %arg-1% for 1 day."
+    make console execute command "tempban %arg-1% 1d Spam Bot"
+    make console execute command "historyadd %arg-1%"
+
+
+command /mpl [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has muted %arg-1% for 10 minutes."
+    make console execute command "mute %arg-1% 10m Low Spam"
+    make console execute command "historyadd %arg-1%"
+
+
+command /mph [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has muted %arg-1% for 30 minutes."
+    make console execute command "mute %arg-1% 30m High Spam"
+    make console execute command "historyadd %arg-1%"
+
+
+command /bpm [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has banned %arg-1% for 5 days."
+    make console execute command "tempban %arg-1% 5d Malicous Hacks"
+    make console execute command "historyadd %arg-1%"
+
+
+command /bpnm [<offlineplayer>]:
+  permission: punish.all
+  trigger:
+    broadcast "{@prefix}&fConsole has banned %arg-1% for 2 days."
+    make console execute command "tempban %arg-1% 2d Non Malicous Hacks"
+    make console execute command "historyadd %arg-1%"

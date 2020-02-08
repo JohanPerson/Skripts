@@ -1,0 +1,45 @@
+options:
+  prefix: &2Gamemode &7>> &r
+
+
+
+command /gmc [<player>]:
+  permission: gm.all
+  trigger:
+    if arg-1 is not set:
+      make console execute command "gamemode creative %player%"
+      send "{@prefix}&bYou are now in creative mode!"
+    if arg-1 is set:
+      make console execute command "gamemode creative %arg-1%"
+
+
+
+command /gms [<player>]:
+  permission: gm.all
+  trigger:
+    if arg-1 is not set:
+      make console execute command "gamemode survival %player%"
+      send "{@prefix}&bYou are now in survival mode!"
+    if arg-1 is set:
+      make console execute command "gamemode survival %arg-1%"
+
+
+
+command /gmsp [<player>]:
+  permission: gm.all
+  trigger:
+    if arg-1 is not set:
+      make console execute command "gamemode spectator %player%"
+      send "{@prefix}&bYou are now in spectator mode!"
+    if arg-1 is set:
+      make console execute command "gamemode spectator %arg-1%"
+
+
+command /gma [<player>]:
+  permission: gm.all
+  trigger:
+    if arg-1 is not set:
+      make console execute command "gamemode adventure %player%"
+      send "{@prefix}&bYou are now in adventure mode!"
+    if arg-1 is set:
+      make console execute command "gamemode adventure %arg-1%"
