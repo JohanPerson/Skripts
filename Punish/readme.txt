@@ -1,5 +1,5 @@
 This script needs the
-plugin spigot plugin
+spigot plugin
 "Skript" and "Essentials" / "EssentialsX"!
 
 made by twitter.com/kraagebein
