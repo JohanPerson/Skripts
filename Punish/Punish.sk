@@ -19,8 +19,8 @@ command /phps [<offlineplayer>]:
   trigger:
     open chest with 3 rows named "&2Public or Silent" to player
     wait 1 tick
-    format slot 12 of player with green wool named "&2Public" to run [make console execute command "nopublic"]
-    format slot 14 of player with red wool named "&cSilent" to run [make console execute command "nosilent"]
+    format slot 12 of player with green wool named "&2Public" to run [make console execute command "nopublic %arg-1%"]
+    format slot 14 of player with red wool named "&cSilent" to run [make console execute command "nosilent %arg-1%"]
 
 
 
