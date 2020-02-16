@@ -5,6 +5,7 @@ options:
 
 command /punish [<offlineplayer>]:
   permission: punish.*
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
     open chest with 3 rows named "&2Punish %arg-1%" to player
     wait 1 tick
@@ -16,6 +17,7 @@ command /punish [<offlineplayer>]:
 
 command /phps [<offlineplayer>]:
   permission: punish.*
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
     open chest with 3 rows named "&2Public or Silent" to player
     wait 1 tick
@@ -30,26 +32,31 @@ command /nopublic [<offlineplayer>]:
   permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
     open chest with 5 rows named "&2You are Punishing &6%arg-1%!" to player
-    wait 1 tick
+    wait 1 ticka
     format slot 0 of player with chest named "&2Malicious Hacks &8| &7Ban duration 30 days" to run [make console execute command "tempban %arg-1% 30d Malicious Hacks"]
     format slot 1 of player with chest named "&2Non Malicious Hacks &8| &7Ban duration 15 days" to run [make console execute command "tempban %arg-1% 15d Malicious Hacks"]
-    format slot 3 of player with hopper named "&2Low Spam &8| &7Mute duration 10 minutes" to run [make console execute command "mute %arg-1% 10m Low Spam"]
-    format slot 4 of player with hopper named "&2High Spam &8| &7Mute duration 30 minutes" to run [make console execute command "mute %arg-1% 30m High Spam"]
-    format slot 5 of player with hopper named "&2Spam Bot &8| &7Mute duration 1 day" to run [make console execute command "mute %arg-1% 1d Spam Bot"]
-    format slot 2 of player with chest named "&2Spam Bot &8| &7Ban duration 1 day" to run [make console execute command "tempban %arg-1% 1d Spam Bot"]
-    format slot 6 of player with hopper named "&2Swearing/Innap &8| &7Mute duration 30 minutes" to run [make console execute command "mute %arg-1% 30m Swearing/Innap"]
-    format slot 7 of player with trapped chest named "&2Warning &8| &7Warn a player" to run [make console execute command "warn %arg-1% You have been warned."]
+    format slot 2 of player with chest named "&2Xray Hacks &8| &7Ban duration 30 days" to run [make console execute command "tempban %arg-1% 30d Xray Hacks"]
+    format slot 4 of player with hopper named "&2Low Spam &8| &7Mute duration 10 minutes" to run [make console execute command "mute %arg-1% 10m Low Spam"]
+    format slot 5 of player with hopper named "&2High Spam &8| &7Mute duration 30 minutes" to run [make console execute command "mute %arg-1% 30m High Spam"]
+    format slot 6 of player with hopper named "&2Spam Bot &8| &7Mute duration 1 day" to run [make console execute command "mute %arg-1% 1d Spam Bot"]
+    format slot 3 of player with chest named "&2Spam Bot &8| &7Ban duration 1 day" to run [make console execute command "tempban %arg-1% 1d Spam Bot"]
+    format slot 7 of player with hopper named "&2Swearing/Innap &8| &7Mute duration 30 minutes" to run [make console execute command "mute %arg-1% 30m Swearing/Innap"]
+    format slot 8 of player with trapped chest named "&2Warning &8| &7Warn a player" to run [make console execute command "warn %arg-1% You have been warned."]
 
 
 command /nosilent [<offlineplayer>]:
   permission: punish.*
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
-    send "Comming Soon!"
+    open chest with 5 rows named "&2You are Punishing &6%arg-1%!" to player
+    wait 1 tick
+    format slot 13 of player with gray wool named "&7Comming Soon!" to close then run [send "Comming Soon!" to player]
 
 
 
 command /warn [<offlineplayer>] [<text>]:
   permission: punish.*
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
     if arg-1 is not set:
       if arg-2 is not set:
@@ -61,5 +68,6 @@ command /warn [<offlineplayer>] [<text>]:
 
 command /history [<offlineplayer>]:
   permission: punish.*
+  permission message: &4[&c!&4] &2You cant do that! &4[&c!&4]
   trigger:
     send "Comming Soon!"
