@@ -9,5 +9,4 @@ Commands:
 /warn (player) (warning)
 
 Permissions:
-punish.* (Punish Permission)
-warn.use (Warning Cmd)
+punish.* (Main Permission)
