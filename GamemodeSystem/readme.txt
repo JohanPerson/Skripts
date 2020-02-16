@@ -1,6 +1,6 @@
 This script needs the
-spigot plugin
-"Skript"!
+plugin spigot plugin
+"Skript" and "SkQuerry"!
 
 made by twitter.com/kraagebein
 

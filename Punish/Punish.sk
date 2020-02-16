@@ -19,8 +19,8 @@ command /phps [<offlineplayer>]:
   trigger:
     open chest with 3 rows named "&2Public or Silent" to player
     wait 1 tick
-    format slot 12 of player with green wool named "&2Public" to run [make console execute command "nopublic %arg-1%"]
-    format slot 14 of player with red wool named "&cSilent" to run [make console execute command "nosilent %arg-1%"]
+    format slot 12 of player with green wool named "&2Public" to run [make player execute command "nopublic %arg-1%"]
+    format slot 14 of player with red wool named "&cSilent" to run [make player execute command "nosilent %arg-1%"]
 
 
 
@@ -53,10 +53,10 @@ command /warn [<offlineplayer>] [<text>]:
   trigger:
     if arg-1 is not set:
       if arg-2 is not set:
-        send "Please fill out a name and a reason"
+        send "{@prefix}Please fill out a name and a reason"
     if arg-1 is set:
       if arg-2 is set:
-        send "&c%arg-2%" to arg-1
+        send "{@prefix}&c%arg-2%" to arg-1
 
 
 command /history [<offlineplayer>]:

@@ -1,0 +1,39 @@
+options:
+  noperm: &c&lHey! &cYou dont have permission to vanish.
+  vanishuse: vanish.use
+  vanishsee: vanish.see
+  prefix: &9VANISH &r
+  vanishalert: &9%player% is now &9&lVANISHED
+  vanishon: &9You are now &9&lVANISHED
+
+
+
+command /vanish:
+  aliases: /v, v
+  trigger:
+    if player has permission "{@vanishuse}":
+      if {vanish.%player%} is not set:
+        send "{@prefix}{@vanishon}"
+        hide player
+        set {vanish.%player%} to "vanished"
+        loop all players:
+          if loop-player has permission "{@vanishsee}":
+            reveal player for loop-player
+            send "{@prefix}{@vanishalert}" to loop-player
+          else:
+            hide player for loop-player
+        if {vanish.%player%} is "vanished":
+          reveal player from all players
+          clear {vanish.%player%}
+    else:
+      send "{@noperm}"
+      stop trigger
+
+
+
+on join:
+  loop all players:
+    if loop-player has permission "{@vanishsee}":
+      reveal player for loop-player
+    else:
+      hide player for loop-player

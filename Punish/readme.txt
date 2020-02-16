@@ -1,6 +1,6 @@
 This script needs the
-spigot plugin
-"Skript" and "Essentials" / "EssentialsX"!
+plugin spigot plugin
+"Skript" and "Essentials" / "EssentialsX" and "SkQuerry"!
 
 made by twitter.com/kraagebein
 
@@ -9,6 +9,5 @@ Commands:
 /warn (player) (warning)
 
 Permissions:
-punish.use (GUI Permission)
-punish.all (Punishment Cmds)
+punish.* (Punish Permission)
 warn.use (Warning Cmd)

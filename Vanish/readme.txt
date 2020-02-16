@@ -5,7 +5,8 @@ plugin spigot plugin
 made by twitter.com/kraagebein
 
 Commands:
-/chat (clear) (on) (off)
+/v
+/vanish
 
 Permissions:
-chat.admin (Main and only permission)
+vanish.* (Main permission)
